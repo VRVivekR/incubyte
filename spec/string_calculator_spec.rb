@@ -35,5 +35,13 @@ describe StringCalculator do
                 expect(subject.add(string)).to eq 15
             end
         end
+
+        context "when there are negative numbers in the string" do
+            string = "0,-1,2,-3,4,-5"
+
+            it "raises error" do
+                expect { subject.add(string) }.to raise_error(Exception, "negative numbers not allowed -1,-3,-5")
+            end
+        end
     end
 end

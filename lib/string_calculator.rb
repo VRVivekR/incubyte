@@ -1,5 +1,7 @@
 class StringCalculator
     class << self
+        ERROR_MESSAGE = "negative numbers not allowed "
+
         def add(string)
             delimiter = ","
             
@@ -12,6 +14,9 @@ class StringCalculator
 
             values = string_values.map(&:to_i)
 
+            negative_numbers = values.select { |num| num < 0 }
+            raise Exception.new ERROR_MESSAGE + negative_numbers.join(',') unless negative_numbers.empty?
+            
             values.reduce(0, :+)
         end
     end
