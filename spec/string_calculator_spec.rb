@@ -27,5 +27,13 @@ describe StringCalculator do
                 expect(subject.add(string)).to eq 15
             end
         end
+
+        context "when the values in the string are separated by a different delimiter" do
+            string = "//;\n0\n1;2\n3;4;5"
+
+            it "returns 15" do
+                expect(subject.add(string)).to eq 15
+            end
+        end
     end
 end
