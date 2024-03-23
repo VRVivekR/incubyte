@@ -1,7 +1,7 @@
 class StringCalculator
     class << self
         def add(string)
-            string_values = string.split(',')
+            string_values = string.split(/,|\s/)
             
             values = string_values.map(&:to_i)
 

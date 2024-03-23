@@ -19,5 +19,13 @@ describe StringCalculator do
                 expect(subject.add(string)).to eq 15
             end
         end
+
+        context "when the values in the string are separated by , and \n" do
+            string = "0,1\n2,3,4\n5"
+
+            it "returns 15" do
+                expect(subject.add(string)).to eq 15
+            end
+        end
     end
 end
